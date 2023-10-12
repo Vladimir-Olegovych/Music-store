@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".presentation.fragment.register.RegisterFragment">
+    tools:context=".presentation.fragment.usersfragments.register.RegisterFragment">
 
 
 

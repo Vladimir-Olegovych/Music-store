@@ -1,12 +1,13 @@
 package com.gigcreator.musicstore.presentation.di
 
-import com.gigcreator.domain.repository.ReadDataRepository
+import com.gigcreator.domain.repository.UserDataRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -15,6 +16,7 @@ class DataModule {
 
     @Provides
     @Singleton
+    @Named("UserData")
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("http://178.163.63.165:27015/")
@@ -24,6 +26,6 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun provideReadDataRepository(retrofit: Retrofit): ReadDataRepository = retrofit.create(ReadDataRepository::class.java)
+    fun provideUserDataRepository(@Named("UserData") retrofit: Retrofit): UserDataRepository = retrofit.create(UserDataRepository::class.java)
 
 }

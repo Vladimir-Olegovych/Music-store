@@ -1,4 +1,4 @@
-package com.gigcreator.musicstore.presentation.fragment.usersfragments.register
+package com.gigcreator.musicstore.presentation.fragment.register
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.gigcreator.musicstore.R
 import com.gigcreator.musicstore.databinding.FragmentRegisterBinding
 import com.gigcreator.musicstore.presentation.constants.Constants
-import com.gigcreator.musicstore.presentation.fragment.usersfragments.mvvm.UserDataViewModel
 import com.gigcreator.musicstore.presentation.functions.isValidEmail
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
-    private val viewModel: UserDataViewModel by viewModels()
+    private val viewModel: RegisterViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +32,11 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.buttonLogIn.setOnClickListener {
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
+        }
+        binding.textViewLogin.setOnClickListener { findNavController().popBackStack() }
+        binding.buttonRegister.setOnClickListener {
             if (binding.editTextTextEmailAddress.text.isNotEmpty() &&
                 binding.editTextTextPassword.text.isNotEmpty() &&
                 binding.editTextTextEmailAddress.text.isValidEmail() &&
@@ -48,6 +53,9 @@ class RegisterFragment : Fragment() {
 
         viewModel.resultSave.observe(viewLifecycleOwner, Observer {
             Toast.makeText(requireContext(), it.result, Toast.LENGTH_SHORT).show()
+            if(it.result == "success"){
+                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+            }
         })
     }
 }

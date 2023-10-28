@@ -5,9 +5,30 @@
     <string name="register">Register</string>
 
     <string name="and_register"><u>And also you can register.</u></string>
+    <string name="and_login"><u>And also you can login.</u></string>
     <string name="email_address">Email Address</string>
 
     <string name="password">Password</string>
     <string name="password_r">Retry password</string>
+
+    <string name="acoustic_guitars">Acoustic guitars</string>
+    <string name="directory">Directory</string>
+    <string name="cart">Cart</string>
+    <string name="favorite">Favorite</string>
+    <string name="settings">Settings</string>
+
+    <string-array name="directory">
+        <item>Acoustic guitars</item>
+        <item>Electric guitars</item>
+        <item>Guitar Amplifiers</item>
+        <item>Acustic systems</item>
+
+        <item>Digital pianos</item>
+        <item>Synthesizers</item>
+        <item>Microphones</item>
+        <item>Radio systems</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

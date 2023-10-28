@@ -4,37 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".presentation.fragment.usersfragments.register.RegisterFragment">
+    android:background="@drawable/background_login_register"
+    tools:context=".presentation.fragment.register.RegisterFragment">
 
-
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         style="@style/EditTextLogin"
+        android:layout_marginTop="148dp"
         android:hint="@string/email_address"
-        android:layout_marginTop="120dp"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.812"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
         style="@style/EditTextLogin"
+        android:layout_marginTop="24dp"
         android:hint="@string/password"
-        android:layout_marginTop="16dp"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,20 +32,40 @@
     <EditText
         android:id="@+id/editTextTextPasswordRetry"
         style="@style/EditTextLogin"
+        android:layout_marginTop="24dp"
         android:hint="@string/password_r"
-        android:layout_marginTop="16dp"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
     <Button
-        android:id="@+id/buttonLogIn"
+        android:id="@+id/buttonRegister"
         style="@style/ButtonLogIn"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/register"
+        app:layout_constraintBottom_toTopOf="@+id/textViewLogin"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPasswordRetry"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPasswordRetry" />
+
+    <TextView
+        android:id="@+id/textViewLogin"
+        style="@style/TextViewRegister"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="120dp"
+        android:text="@string/and_login"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/btn_back"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

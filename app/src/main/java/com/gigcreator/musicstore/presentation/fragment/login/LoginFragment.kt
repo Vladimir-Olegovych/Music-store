@@ -1,4 +1,4 @@
-package com.gigcreator.musicstore.presentation.fragment.usersfragments.login
+package com.gigcreator.musicstore.presentation.fragment.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import com.gigcreator.musicstore.R
 import com.gigcreator.musicstore.databinding.FragmentLoginBinding
 import com.gigcreator.musicstore.presentation.constants.Constants
-import com.gigcreator.musicstore.presentation.fragment.usersfragments.mvvm.UserDataViewModel
 import com.gigcreator.musicstore.presentation.functions.isValidEmail
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
-    private val viewModel: UserDataViewModel by viewModels()
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +32,9 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+        }
         binding.buttonLogIn.setOnClickListener {
             if (binding.editTextTextEmailAddress.text.isNotEmpty() &&
                 binding.editTextTextPassword.text.isNotEmpty() &&
@@ -47,8 +49,8 @@ class LoginFragment : Fragment() {
         viewModel.resultSearch.observe(viewLifecycleOwner, Observer {
             if (it.email == binding.editTextTextEmailAddress.text.toString() &&
                 it.password == binding.editTextTextPassword.text.toString()){
-                Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
-
+                viewModel.save(it)
+                findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
             }else {
                 Toast.makeText(requireContext(), "wrong login or password", Toast.LENGTH_SHORT).show()
             }

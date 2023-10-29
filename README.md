@@ -1,2 +1,4 @@
 # Music-store
-![photo1697138698](https://github.com/Vladimir-Olegovych/Music-store/assets/117392112/0db804f0-d861-4179-84aa-cae06f2ccfd4)
+
+https://github.com/Vladimir-Olegovych/Music-store/assets/117392112/3a4807ff-a4d8-473a-a462-62ba8a73db6b
+

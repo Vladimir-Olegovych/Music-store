@@ -28,5 +28,4 @@ class DomainModule {
     fun provideUserStorageUseCase(userStorageRepository: UserStorageRepository): UserStorageUseCase =
         UserStorageUseCase(userStorageRepository = userStorageRepository)
 
-
 }

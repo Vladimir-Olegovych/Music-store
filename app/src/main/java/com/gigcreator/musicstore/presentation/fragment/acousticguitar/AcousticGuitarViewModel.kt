@@ -17,7 +17,6 @@ class AcousticGuitarViewModel @Inject constructor(private val acousticGuitarData
     private val _resultAcousticGuitarData = MutableLiveData<List<AcousticGuitarData>>()
     val resultAcousticGuitarData: LiveData<List<AcousticGuitarData>> = _resultAcousticGuitarData
 
-
     fun readAcousticGuitar(){
         viewModelScope.launch(Dispatchers.IO){
             _resultAcousticGuitarData.postValue(acousticGuitarDataUseCase.readAcousticGuitar())

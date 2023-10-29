@@ -14,7 +14,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -32,14 +31,13 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun provideUserDataRepository(retrofit: Retrofit): UserDataRepository =
+    fun provideUserData(retrofit: Retrofit): UserDataRepository =
         retrofit.create(UserDataRepository::class.java)
 
     @Provides
     @Singleton
     fun provideAcousticGuitarDataRepository(retrofit: Retrofit): AcousticGuitarDataRepository =
         retrofit.create(AcousticGuitarDataRepository::class.java)
-
 
     @Provides
     @Singleton

@@ -1,8 +1,8 @@
 package com.gigcreator.domain.repository
 
-import com.gigcreator.domain.models.UserData
+import com.gigcreator.domain.models.UserDataModel
 
 interface UserStorageRepository {
-    fun save(userData: UserData)
-    fun get(): UserData
+    fun save(userDataModel: UserDataModel)
+    fun get(): UserDataModel
 }

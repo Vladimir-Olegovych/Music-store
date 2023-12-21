@@ -1,9 +1,15 @@
 package com.gigcreator.musicstore.presentation.di
 
 import android.content.Context
+import com.gigcreator.data.guitars.AcousticGuitarData
+import com.gigcreator.data.guitars.AcousticGuitarDataGuitar
+import com.gigcreator.data.repository.AcousticGuitarDataRepositoryImpl
+import com.gigcreator.data.repository.UserDataRepositoryImpl
 import com.gigcreator.data.storage.UserStorage
 import com.gigcreator.data.repository.UserStorageRepositoryImpl
 import com.gigcreator.data.storage.SharedPrefUserStorage
+import com.gigcreator.data.user.UserData
+import com.gigcreator.data.user.UserDataUser
 import com.gigcreator.domain.repository.AcousticGuitarDataRepository
 import com.gigcreator.domain.repository.UserDataRepository
 import com.gigcreator.domain.repository.UserStorageRepository
@@ -31,13 +37,23 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun provideUserData(retrofit: Retrofit): UserDataRepository =
-        retrofit.create(UserDataRepository::class.java)
+    fun provideAcousticGuitarData(retrofit: Retrofit): AcousticGuitarData =
+        AcousticGuitarDataGuitar(retrofit.create(AcousticGuitarDataRepository::class.java))
 
     @Provides
     @Singleton
-    fun provideAcousticGuitarDataRepository(retrofit: Retrofit): AcousticGuitarDataRepository =
-        retrofit.create(AcousticGuitarDataRepository::class.java)
+    fun provideAcousticGuitarDataRepository(acousticGuitarData: AcousticGuitarData): AcousticGuitarDataRepository =
+        AcousticGuitarDataRepositoryImpl(acousticGuitarData)
+
+    @Provides
+    @Singleton
+    fun provideUserData(retrofit: Retrofit): UserData =
+        UserDataUser(retrofit.create(UserDataRepository::class.java))
+
+    @Provides
+    @Singleton
+    fun provideUserDataRepository(userData: UserData): UserDataRepository =
+        UserDataRepositoryImpl(userData = userData)
 
     @Provides
     @Singleton

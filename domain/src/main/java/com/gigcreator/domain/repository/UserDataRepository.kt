@@ -1,17 +1,17 @@
 package com.gigcreator.domain.repository
 
 import com.gigcreator.domain.models.Result
-import com.gigcreator.domain.models.UserData
+import com.gigcreator.domain.models.UserDataModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface UserDataRepository {
     @GET("/user?")
-    suspend fun readUser(@Query("key") key: String): List<UserData>
+    suspend fun readUser(@Query("key") key: String): List<UserDataModel>
 
     @GET("/user/search?&")
     suspend fun searchUser(@Query("email") email: String,
-                           @Query("key") key: String): UserData
+                           @Query("key") key: String): UserDataModel
 
     @GET("/user/save?&&")
     suspend fun saveUser(@Query("email") email: String,

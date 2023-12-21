@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.gigcreator.domain.models.UserData
+import com.gigcreator.domain.models.UserDataModel
 import com.gigcreator.domain.usecase.UserDataUseCase
 import com.gigcreator.domain.usecase.UserStorageUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,8 +18,8 @@ class LoginViewModel @Inject constructor(
     private val userStorageUseCase: UserStorageUseCase
 ): ViewModel() {
 
-    private val _resultSearch = MutableLiveData<UserData>()
-    val resultSearch: LiveData<UserData> = _resultSearch
+    private val _resultSearch = MutableLiveData<UserDataModel>()
+    val resultSearch: LiveData<UserDataModel> = _resultSearch
 
     fun searchUser(email: String, key: String){
         viewModelScope.launch(Dispatchers.IO){
@@ -27,7 +27,7 @@ class LoginViewModel @Inject constructor(
         }
     }
     //sp
-    fun save(userData: UserData){
-        userStorageUseCase.save(userData)
+    fun save(userDataModel: UserDataModel){
+        userStorageUseCase.save(userDataModel)
     }
 }

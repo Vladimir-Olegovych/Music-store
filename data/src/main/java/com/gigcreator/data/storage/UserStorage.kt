@@ -1,8 +1,8 @@
 package com.gigcreator.data.storage
 
-import com.gigcreator.domain.models.UserData
+import com.gigcreator.domain.models.UserDataModel
 
 interface UserStorage {
-    fun save(userData: UserData)
-    fun get(): UserData
+    fun save(userDataModel: UserDataModel)
+    fun get(): UserDataModel
 }

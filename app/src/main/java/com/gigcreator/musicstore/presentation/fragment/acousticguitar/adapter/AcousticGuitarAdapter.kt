@@ -22,9 +22,9 @@ class AcousticGuitarAdapter(
         private val binding = AcousticGuitarItemBinding.bind(item)
 
         fun bind(new: AcousticGuitarData) = with(binding) {
-            Glide.with(context).
-            load("http://178.163.63.165:27015/guitar/acoustic/search/image?id=${new.image}").
-            into(image)
+            Glide.with(context)
+                .load("http://178.163.63.165:27015/guitar/acoustic/search/image?id=${new.image}")
+                .into(image)
             name.text = new.name
             price.text = new.price.toString() + "руб."
             description.text = new.technical_description

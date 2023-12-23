@@ -43,6 +43,7 @@ class LoginFragment : Fragment() {
                 viewModel.searchUser(binding.editTextTextEmailAddress.text.toString(), Constants.KEY)
             }else {
                 Toast.makeText(requireContext(), "text error", Toast.LENGTH_SHORT).show()
+                binding.editTextTextPassword.setText("")
             }
         }
 
@@ -53,6 +54,7 @@ class LoginFragment : Fragment() {
                 findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
             }else {
                 Toast.makeText(requireContext(), "wrong login or password", Toast.LENGTH_SHORT).show()
+                binding.editTextTextPassword.setText("")
             }
         })
 

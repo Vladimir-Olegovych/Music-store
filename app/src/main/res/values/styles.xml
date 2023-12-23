@@ -35,4 +35,25 @@
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/sf_pro_display_500</item>
     </style>
+
+    <style name="Item_Image">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">300dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+    <style name="TextLargeBlack">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_700</item>
+    </style>
+    <style name="TextMediumBlack">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_400</item>
+    </style>
 </resources>

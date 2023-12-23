@@ -13,11 +13,14 @@
             android:id="@+id/action_mainFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_acousticGuitarFragment"
             app:destination="@id/acousticGuitarFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_electricGuitarFragment"
+            app:destination="@id/electricGuitarFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_guitarAmplifierFragment"
+            app:destination="@id/guitarAmplifierFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -37,19 +40,49 @@
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
             android:id="@+id/action_registerFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/acousticGuitarFragment"
-        android:name="com.gigcreator.musicstore.presentation.fragment.acousticguitar.AcousticGuitarFragment"
+        android:name="com.gigcreator.musicstore.presentation.fragment.guitar.acousticguitar.AcousticGuitarFragment"
         android:label="fragment_acoustic_guitar"
         tools:layout="@layout/fragment_acoustic_guitar" >
         <action
-            android:id="@+id/action_acousticGuitarFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_acousticGuitarFragment_to_acousticGuitarFragmentItem"
+            app:destination="@id/acousticGuitarFragmentItem" />
     </fragment>
+    <fragment
+        android:id="@+id/electricGuitarFragment"
+        android:name="com.gigcreator.musicstore.presentation.fragment.guitar.electricguitar.ElectricGuitarFragment"
+        android:label="fragment_electric_guitar"
+        tools:layout="@layout/fragment_electric_guitar" >
+        <action
+            android:id="@+id/action_electricGuitarFragment_to_electricGuitarFragmentItem"
+            app:destination="@id/electricGuitarFragmentItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricGuitarFragmentItem"
+        android:name="com.gigcreator.musicstore.presentation.fragment.shopitem.guitaritem.ElectricGuitarFragmentItem"
+        android:label="fragment_electric_guitar_item"
+        tools:layout="@layout/fragment_electric_guitar_item" />
+    <fragment
+        android:id="@+id/acousticGuitarFragmentItem"
+        android:name="com.gigcreator.musicstore.presentation.fragment.shopitem.guitaritem.AcousticGuitarFragmentItem"
+        android:label="fragment_acoustic_guitar_item"
+        tools:layout="@layout/fragment_acoustic_guitar_item" />
+    <fragment
+        android:id="@+id/guitarAmplifierFragment"
+        android:name="com.gigcreator.musicstore.presentation.fragment.amplifier.GuitarAmplifierFragment"
+        android:label="fragment_guitar_amplifier"
+        tools:layout="@layout/fragment_guitar_amplifier" >
+        <action
+            android:id="@+id/action_guitarAmplifierFragment_to_guitarAmplifierFragmentItem"
+            app:destination="@id/guitarAmplifierFragmentItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/guitarAmplifierFragmentItem"
+        android:name="com.gigcreator.musicstore.presentation.fragment.shopitem.amplifieritem.GuitarAmplifierFragmentItem"
+        android:label="fragment_guitar_amplifier_item"
+        tools:layout="@layout/fragment_guitar_amplifier_item" />
 </navigation>

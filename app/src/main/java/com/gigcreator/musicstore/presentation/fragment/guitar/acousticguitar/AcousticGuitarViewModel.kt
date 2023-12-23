@@ -1,10 +1,10 @@
-package com.gigcreator.musicstore.presentation.fragment.acousticguitar
+package com.gigcreator.musicstore.presentation.fragment.guitar.acousticguitar
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.gigcreator.domain.models.AcousticGuitarData
+import com.gigcreator.domain.models.GuitarData
 import com.gigcreator.domain.usecase.AcousticGuitarDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -14,36 +14,36 @@ import javax.inject.Inject
 @HiltViewModel
 class AcousticGuitarViewModel @Inject constructor(private val acousticGuitarDataUseCase: AcousticGuitarDataUseCase): ViewModel() {
 
-    private val _resultAcousticGuitarData = MutableLiveData<List<AcousticGuitarData>>()
-    val resultAcousticGuitarData: LiveData<List<AcousticGuitarData>> = _resultAcousticGuitarData
+    private val _resultGuitarData = MutableLiveData<List<GuitarData>>()
+    val resultGuitarData: LiveData<List<GuitarData>> = _resultGuitarData
 
     fun readAcousticGuitar(){
         viewModelScope.launch(Dispatchers.IO){
-            _resultAcousticGuitarData.postValue(acousticGuitarDataUseCase.readAcousticGuitar())
+            _resultGuitarData.postValue(acousticGuitarDataUseCase.readAcousticGuitar())
         }
     }
 
     fun searchAcousticGuitarByName(name: String) {
         viewModelScope.launch(Dispatchers.IO){
-            _resultAcousticGuitarData.postValue(acousticGuitarDataUseCase.searchAcousticGuitarByName(name))
+            _resultGuitarData.postValue(acousticGuitarDataUseCase.searchAcousticGuitarByName(name))
         }
     }
 
     fun searchAcousticGuitarByBrand(name: String) {
         viewModelScope.launch(Dispatchers.IO){
-            _resultAcousticGuitarData.postValue(acousticGuitarDataUseCase.searchAcousticGuitarByBrand(name))
+            _resultGuitarData.postValue(acousticGuitarDataUseCase.searchAcousticGuitarByBrand(name))
         }
     }
 
     fun searchAcousticGuitarByPrice(name: String) {
         viewModelScope.launch(Dispatchers.IO){
-            _resultAcousticGuitarData.postValue(acousticGuitarDataUseCase.searchAcousticGuitarByPrice(name))
+            _resultGuitarData.postValue(acousticGuitarDataUseCase.searchAcousticGuitarByPrice(name))
         }
     }
 
     fun searchAcousticGuitarByStrings(name: Int) {
         viewModelScope.launch(Dispatchers.IO){
-            _resultAcousticGuitarData.postValue(acousticGuitarDataUseCase.searchAcousticGuitarByStrings(name))
+            _resultGuitarData.postValue(acousticGuitarDataUseCase.searchAcousticGuitarByStrings(name))
         }
     }
 }

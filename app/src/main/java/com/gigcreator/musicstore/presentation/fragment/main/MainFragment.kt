@@ -49,8 +49,8 @@ class MainFragment : Fragment() {
         mainAdapter = MainAdapter(mainList) {
             when(it){
                 mainList[0].name -> findNavController().navigate(R.id.action_mainFragment_to_acousticGuitarFragment)
-                mainList[1].name -> Log.d("sdsdsdsdsd", it)
-                mainList[2].name -> Log.d("sdsdsdsdsd", it)
+                mainList[1].name -> findNavController().navigate(R.id.action_mainFragment_to_electricGuitarFragment)
+                mainList[2].name -> findNavController().navigate(R.id.action_mainFragment_to_guitarAmplifierFragment)
                 mainList[3].name -> Log.d("sdsdsdsdsd", it)
                 mainList[4].name -> Log.d("sdsdsdsdsd", it)
                 mainList[5].name -> Log.d("sdsdsdsdsd", it)

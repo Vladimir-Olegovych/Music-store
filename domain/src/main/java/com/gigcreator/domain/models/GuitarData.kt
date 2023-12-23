@@ -1,6 +1,6 @@
 package com.gigcreator.domain.models
 
-class AcousticGuitarData(
+class GuitarData(
     var id: String = "",
     var brand: String = "",
     var price: Int = 0,

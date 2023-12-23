@@ -1,26 +1,27 @@
 package com.gigcreator.data.repository
 
-import com.gigcreator.data.guitars.AcousticGuitarData
-import com.gigcreator.domain.repository.AcousticGuitarDataRepository
+import com.gigcreator.data.guitars.ElectricGuitarData
+import com.gigcreator.domain.repository.ElectricGuitarDataRepository
 
-class AcousticGuitarDataRepositoryImpl(private val acousticGuitarData: AcousticGuitarData): AcousticGuitarDataRepository {
+
+class ElectricGuitarDataRepositoryImpl(private val electricGuitarData: ElectricGuitarData): ElectricGuitarDataRepository {
     override suspend fun readAcousticGuitar(): List<com.gigcreator.domain.models.GuitarData> {
-        return acousticGuitarData.readAcousticGuitar()
+        return electricGuitarData.readAcousticGuitar()
     }
 
     override suspend fun searchAcousticGuitarByName(name: String): List<com.gigcreator.domain.models.GuitarData> {
-        return acousticGuitarData.searchAcousticGuitarByName(name)
+        return electricGuitarData.searchAcousticGuitarByName(name)
     }
 
     override suspend fun searchAcousticGuitarByBrand(name: String): List<com.gigcreator.domain.models.GuitarData> {
-        return acousticGuitarData.searchAcousticGuitarByBrand(name)
+        return electricGuitarData.searchAcousticGuitarByBrand(name)
     }
 
     override suspend fun searchAcousticGuitarByPrice(name: String): List<com.gigcreator.domain.models.GuitarData> {
-        return acousticGuitarData.searchAcousticGuitarByPrice(name)
+        return electricGuitarData.searchAcousticGuitarByPrice(name)
     }
 
     override suspend fun searchAcousticGuitarByStrings(name: Int): List<com.gigcreator.domain.models.GuitarData> {
-        return acousticGuitarData.searchAcousticGuitarByStrings(name)
+        return electricGuitarData.searchAcousticGuitarByStrings(name)
     }
 }

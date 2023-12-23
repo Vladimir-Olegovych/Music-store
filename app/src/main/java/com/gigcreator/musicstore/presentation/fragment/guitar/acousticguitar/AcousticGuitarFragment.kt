@@ -1,25 +1,28 @@
-package com.gigcreator.musicstore.presentation.fragment.acousticguitar
+package com.gigcreator.musicstore.presentation.fragment.guitar.acousticguitar
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.gigcreator.musicstore.R
 import com.gigcreator.musicstore.databinding.FragmentAcousticGuitarBinding
-import com.gigcreator.musicstore.presentation.fragment.acousticguitar.adapter.AcousticGuitarAdapter
+import com.gigcreator.musicstore.presentation.fragment.guitar.GuitarAdapter
+import com.gigcreator.musicstore.presentation.fragment.shopitem.GuitarItemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AcousticGuitarFragment : Fragment() {
 
     private lateinit var binding: FragmentAcousticGuitarBinding
-    private lateinit var acousticGuitarAdapter: AcousticGuitarAdapter
+    private lateinit var guitarAdapter: GuitarAdapter
     private val viewModel: AcousticGuitarViewModel by viewModels()
+    private val viewModelItem: GuitarItemViewModel by activityViewModels()
 
 
     override fun onCreateView(
@@ -35,16 +38,17 @@ class AcousticGuitarFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnBack.setOnClickListener { findNavController().popBackStack() }
 
-        acousticGuitarAdapter = AcousticGuitarAdapter(requireContext()){
-            Log.d("sadasdasdasdasd", it.name)
+        guitarAdapter = GuitarAdapter(requireContext()){
+            viewModelItem.setAcousticGuitarData(it)
+            findNavController().navigate(R.id.action_acousticGuitarFragment_to_acousticGuitarFragmentItem)
         }
         binding.rcView.layoutManager = LinearLayoutManager(requireContext())
-        binding.rcView.adapter = acousticGuitarAdapter
+        binding.rcView.adapter = guitarAdapter
 
 
         viewModel.readAcousticGuitar()
-        viewModel.resultAcousticGuitarData.observe(viewLifecycleOwner, Observer {
-            acousticGuitarAdapter.set(it)
+        viewModel.resultGuitarData.observe(viewLifecycleOwner, Observer {
+            guitarAdapter.set(it)
         })
     }
 

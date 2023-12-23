@@ -1,22 +1,22 @@
-package com.gigcreator.domain.repository
+package com.gigcreator.data.guitars
 
 import com.gigcreator.domain.models.GuitarData
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface AcousticGuitarDataRepository {
-    @GET("/guitar/acoustic")
+interface ElectricGuitarData {
+    @GET("/guitar/electric")
     suspend fun readAcousticGuitar(): List<GuitarData>
 
-    @GET("/guitar/acoustic/search/name?")
+    @GET("/guitar/electric/search/name?")
     suspend fun searchAcousticGuitarByName(@Query("name") name: String): List<GuitarData>
 
-    @GET("/guitar/acoustic/search/brand?")
+    @GET("/guitar/electric/search/brand?")
     suspend fun searchAcousticGuitarByBrand(@Query("name") name: String): List<GuitarData>
 
-    @GET("/guitar/acoustic/search/price?")
+    @GET("/guitar/electric/search/price?")
     suspend fun searchAcousticGuitarByPrice(@Query("name") name: String): List<GuitarData>
 
-    @GET("/guitar/acoustic/search/strings?")
+    @GET("/guitar/electric/search/strings?")
     suspend fun searchAcousticGuitarByStrings(@Query("name") name: Int): List<GuitarData>
 }

@@ -1,4 +1,4 @@
-package com.gigcreator.musicstore.presentation.fragment.acousticguitar.adapter
+package com.gigcreator.musicstore.presentation.fragment.guitar
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,24 +6,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.gigcreator.domain.models.AcousticGuitarData
+import com.gigcreator.domain.models.GuitarData
 import com.gigcreator.musicstore.R
-import com.gigcreator.musicstore.databinding.AcousticGuitarItemBinding
+import com.gigcreator.musicstore.databinding.ShopItemBinding
 
-class AcousticGuitarAdapter(
+class GuitarAdapter(
     private val context: Context,
-    private val listener: (AcousticGuitarData) -> Unit
-): RecyclerView.Adapter<AcousticGuitarAdapter.GuitarHolder>() {
+    private val listener: (GuitarData) -> Unit
+): RecyclerView.Adapter<GuitarAdapter.GuitarHolder>() {
 
-    private var guitarList = listOf<AcousticGuitarData>()
+    private var guitarList = listOf<GuitarData>()
 
     inner class GuitarHolder(item: View) : RecyclerView.ViewHolder(item) {
 
-        private val binding = AcousticGuitarItemBinding.bind(item)
+        private val binding = ShopItemBinding.bind(item)
 
-        fun bind(new: AcousticGuitarData) = with(binding) {
+        fun bind(new: GuitarData) = with(binding) {
             Glide.with(context)
-                .load("http://178.163.63.165:27015/guitar/acoustic/search/image?id=${new.image}")
+                .load("${context.resources.getString(R.string.address)}guitar/acoustic/search/image?id=${new.image}")
                 .into(image)
             name.text = new.name
             price.text = new.price.toString() + "руб."
@@ -33,7 +33,7 @@ class AcousticGuitarAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GuitarHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.acoustic_guitar_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.shop_item, parent, false)
         return GuitarHolder(view)
     }
 
@@ -45,7 +45,7 @@ class AcousticGuitarAdapter(
         return guitarList.size
     }
 
-    fun set(list: List<AcousticGuitarData>){
+    fun set(list: List<GuitarData>){
         guitarList = list
         notifyDataSetChanged()
     }

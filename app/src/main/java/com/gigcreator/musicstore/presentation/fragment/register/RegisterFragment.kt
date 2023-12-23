@@ -54,7 +54,7 @@ class RegisterFragment : Fragment() {
         viewModel.resultSave.observe(viewLifecycleOwner, Observer {
             Toast.makeText(requireContext(), it.result, Toast.LENGTH_SHORT).show()
             if(it.result == "success"){
-                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                findNavController().popBackStack()
             }
         })
     }
